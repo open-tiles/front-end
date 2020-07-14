@@ -1,0 +1,47 @@
+<head>
+<script >
+    console.log('start')
+    const URL = "http://localhost:8000/v0/board?id=2";
+    // response = fetch(URL)
+    //.then(response => response.text())
+    //.then(data => document.write(data));
+    async function f() {
+        let response = await fetch(URL);
+        let data = await response.json()
+        return data
+     }
+     f()
+        .then(
+            function(response){
+                console.log(response)
+
+                var x = response.hexagons.length;
+                for(i = 0; i < x; i++){
+                    document.write("playable: ", response.hexagons[i].playable)
+                    document.write("</br>")
+                    document.write("owner: ", response.hexagons[i].player_id)
+                    document.write("</br>")
+                    document.write("tokens: ", response.hexagons[i].tokens)
+                    document.write("</br>")
+                    document.write("hex-id: ", response.hexagons[i].hex_id)
+                    document.write("</br>")
+                    document.write("x: ", response.hexagons[i].x)
+                    document.write("</br>")
+                    document.write("y: ", response.hexagons[i].y)
+                    document.write("</br>")
+                    document.write("</br>")
+                }
+                    //document.write("playable: ", response.hexagons[0].playable)
+                    //document.write("</br>")
+                    //document.write("hex-id: ", response.hexagons[0].hex_id)
+                    //document.write("</br>")
+                    //document.write("tokens: ", response.hexagons[0].tokens)
+                    //document.write("</br>")
+                }
+            )
+    console.log('end')
+</script>
+</head>
+<body>
+</body>
+
