@@ -17,8 +17,8 @@ async function f() {
                 newDiv.setAttribute('class', 'hex');
                 var newContent = document.createTextNode(response.hexagons[i].player_id);
                 newDiv.appendChild(newContent)
-                var currentDiv = document.getElementById("h");
-                document.body.insertBefore(newDiv, currentDiv);
+                var currentDiv = document.getElementById("board");
+                currentDiv.parentNode.insertBefore(newDiv, currentDiv.nextSibling);
                 //document.write("playable: ", response.hexagons[i].playable)
                 //document.write("</br>")
                 //document.write("owner: ", response.hexagons[i].player_id)
